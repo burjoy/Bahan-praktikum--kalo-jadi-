@@ -1,19 +1,15 @@
 import  { useState } from 'react';
+import handlePlotSystem from '../apis/getImage'
 
-const SystemPlot = ({ plotSystem }) => {
+const SystemPlot = () => {
   const [imageSrc, setImageSrc] = useState('');
 
-  const handlePlotSystem = async () => {
+  const handlePlotClick = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/plot_system');
-      if (!response.ok) {
-        throw new Error(`Error fetching image: ${response.status}`);
-      }
-
-      const blob = await response.blob();
-      setImageSrc(URL.createObjectURL(blob));
+      const hasil = await handlePlotSystem();
+      setImageSrc(hasil);
     } catch (error) {
-      console.error('Error fetching image:', error);
+      console.log('Error getting image');  
     }
   };
 
@@ -23,7 +19,7 @@ const SystemPlot = ({ plotSystem }) => {
       <div className="mb-4">
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handlePlotSystem}
+          onClick={handlePlotClick}
         >
           Plot System
         </button>
