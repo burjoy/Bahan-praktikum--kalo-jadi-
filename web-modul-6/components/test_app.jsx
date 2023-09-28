@@ -13,7 +13,7 @@ function TestApp() {
       </div>
       {matrices && (
         <div className="mb-8">
-          <SystemPlot plotSystem={matrices} />
+          <SystemPlot />
         </div>
       )}
     </div>
