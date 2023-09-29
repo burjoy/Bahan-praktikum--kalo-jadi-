@@ -1,39 +1,19 @@
 import { useState } from 'react';
+import handleMatrixSubmit from '../apis/postMatrix';
 
 
 const MatrixInput = ({ setMatrices }) => {
   const [matrixA, setMatrixA] = useState(Array(3).fill(Array(3).fill('')));
   const [matrixB, setMatrixB] = useState(Array(3).fill(Array(1).fill('')));
 
-  const handleMatrixSubmit = async () => {
+  const submitMatrix = async () => {
     try {
-      // Convert the matrixA and matrixB arrays to the format expected by the Flask server
-      const formattedMatrixA = matrixA.map(row => row.map(Number));
-      const formattedMatrixB = matrixB.map(row => row.map(Number));
-
-      // Send a POST request to the Flask server to set the matrices
-      const response = await fetch('http://127.0.0.1:5000/api/set_matrices', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          matrix_A: formattedMatrixA,
-          matrix_B: formattedMatrixB,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error setting matrices: ${response.status}`);
-      }
-
-      setMatrices({matrix_A: formattedMatrixA, matrix_B:formattedMatrixB});
-
-      alert('Matrices set successfully!');
+      const hasil = await handleMatrixSubmit(matrixA, matrixB);
+      setMatrices({matrixA: hasil[0], matrixB: hasil[1]});
     } catch (error) {
-      console.error('Error setting matrices:', error);
+      console.log(`There's an error: ${error}`);
     }
-  };
+  }
 
   const handleMatrixAChange = (value, row, col) => {
     const updatedMatrixA = matrixA.map((matrixRow, rowIndex) =>
@@ -88,7 +68,7 @@ const MatrixInput = ({ setMatrices }) => {
       </div>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleMatrixSubmit}
+        onClick={submitMatrix}
       >
         Set Matrices
       </button>
