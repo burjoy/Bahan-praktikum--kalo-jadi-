@@ -11,6 +11,10 @@ CORS(app)
 A = None
 B = None
 
+@app.route('/')
+def home():
+    return 'Home Page Route'
+
 @app.route('/api/set_matrices', methods=['POST'])
 def set_matrices():
     global A, B
