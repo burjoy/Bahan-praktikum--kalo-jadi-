@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "./test_flask.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ]
+}
