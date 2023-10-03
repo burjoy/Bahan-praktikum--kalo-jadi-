@@ -5,7 +5,7 @@ const handleMatrixSubmit = async (matrixA, matrixB) => {
       const formattedMatrixB = matrixB.map(row => row.map(Number));
 
       // Send a POST request to the Flask server to set the matrices
-      const response = await fetch('http://127.0.0.1:5000/api/set_matrices', {
+      const response = await fetch('https://burjoy.pythonanywhere.com/api/set_matrices', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
