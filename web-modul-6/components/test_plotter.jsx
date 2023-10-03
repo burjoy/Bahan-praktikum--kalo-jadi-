@@ -1,13 +1,14 @@
 import  { useState } from 'react';
-import handlePlotSystem from '../apis/getImage'
+import handlePlotSystem from '../../apis/getImage'
 
-const SystemPlot = () => {
+const SystemPlot = ({setImages}) => {
   const [imageSrc, setImageSrc] = useState('');
 
   const handlePlotClick = async () => {
     try {
       const hasil = await handlePlotSystem();
       setImageSrc(hasil);
+      setImages(hasil);
     } catch (error) {
       console.log('Error getting image');  
     }
