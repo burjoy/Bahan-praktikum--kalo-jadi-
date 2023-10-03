@@ -16,8 +16,8 @@ const key = process.env.PRIVATE_KEY.replace(/\\n/g, '\n');
 console.log(email);
 
 app.use(express.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.post('/api/set_matrices', postKomenSpreadsheet.postMatrixSpreadsheet);
 
