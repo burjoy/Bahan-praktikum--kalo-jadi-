@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import handleMatrixSubmit from '../apis/postMatrix';
-
+import handleMatrixSubmit from '../../apis/postMatrix';
+// import handleMatrixSpreadsheet from '../../apis/postSpreadSheet';
 
 const MatrixInput = ({ setMatrices }) => {
   const [matrixA, setMatrixA] = useState(Array(3).fill(Array(3).fill('')));
@@ -9,11 +9,20 @@ const MatrixInput = ({ setMatrices }) => {
   const submitMatrix = async () => {
     try {
       const hasil = await handleMatrixSubmit(matrixA, matrixB);
-      setMatrices({matrixA: hasil[0], matrixB: hasil[1]});
+      setMatrices([hasil[0], hasil[1]]);
     } catch (error) {
       console.log(`There's an error: ${error}`);
     }
   }
+
+  // const submitSpreadsheet = async() => {
+  //   try {
+  //     const response = await handleMatrixSpreadsheet(matrixA, matrixB);
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   const handleMatrixAChange = (value, row, col) => {
     const updatedMatrixA = matrixA.map((matrixRow, rowIndex) =>
@@ -68,7 +77,8 @@ const MatrixInput = ({ setMatrices }) => {
       </div>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={submitMatrix}
+        onClick={() => {
+          submitMatrix();}}
       >
         Set Matrices
       </button>
