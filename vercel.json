@@ -1,8 +1,9 @@
 {
+    "version": 2,
     "builds": [
         {
-            "src": "./test_flask.py",
-            "use": "@vercel/python"
+            "src": "/server.js",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
