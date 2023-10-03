@@ -9,7 +9,9 @@ function SubmitButton({matrix_jawaban}){
         try {
           const response = await handleMatrixSpreadsheet(matrix_jawaban[0], matrix_jawaban[1]);
           console.log(response);
-          response.then(setIsLoading(false));
+          if(response){
+            setIsLoading(false);
+          }
         } catch (error) {
           console.log(error);
         }
