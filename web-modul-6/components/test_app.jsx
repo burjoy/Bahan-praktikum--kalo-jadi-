@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import MatrixInput from './matrix_a_prop';
 import SystemPlot from './test_plotter';
+import SubmitButton from './submit_matrix';
 
 function TestApp() {
   const [matrices, setMatrices] = useState(null);
+  const [images, setImages] = useState(null);
 
   return (
     <div className="App">
@@ -13,7 +15,12 @@ function TestApp() {
       </div>
       {matrices && (
         <div className="mb-8">
-          <SystemPlot />
+          <SystemPlot setImages={setImages}/>
+        </div>
+      )}
+      {images && (
+        <div className="mb-8">
+          <SubmitButton matrix_jawaban={matrices}/>
         </div>
       )}
     </div>
