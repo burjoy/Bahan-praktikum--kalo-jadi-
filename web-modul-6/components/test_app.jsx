@@ -2,12 +2,14 @@ import { useState } from 'react';
 import MatrixInput from './matrix_a_prop';
 import SystemPlot from './test_plotter';
 import SubmitButton from './submit_matrix';
+import '../src/App.css'
 
 function TestApp() {
   const [matrices, setMatrices] = useState(null);
   const [images, setImages] = useState(null);
 
   return (
+    <>
     <div className="App">
       <h1 className="text-3xl font-bold mb-4">Matrix Plotter</h1>
       <div className="mb-8">
@@ -24,6 +26,7 @@ function TestApp() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

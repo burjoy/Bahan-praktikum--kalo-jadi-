@@ -1,4 +1,5 @@
-import handleMatrixSpreadsheet from '../../apis/postSpreadSheet';
+//import handleMatrixSpreadsheet from '../../apis/postSpreadSheet';
+import postMatrixToDb from '../../apis/postDb';
 import Loading from './loadingButton';
 import { useState } from 'react';
 
@@ -7,7 +8,7 @@ function SubmitButton({matrix_jawaban}){
     const submitSpreadsheet = async() => {
         setIsLoading(true);
         try {
-          const response = await handleMatrixSpreadsheet(matrix_jawaban[0], matrix_jawaban[1]);
+          const response = await postMatrixToDb(matrix_jawaban[0], matrix_jawaban[1]);
           console.log(response);
           if(response){
             setIsLoading(false);

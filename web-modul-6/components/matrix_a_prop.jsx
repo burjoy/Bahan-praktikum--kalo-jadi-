@@ -1,28 +1,25 @@
 import { useState } from 'react';
 import handleMatrixSubmit from '../../apis/postMatrix';
+import Loading from './loadingButton';
 // import handleMatrixSpreadsheet from '../../apis/postSpreadSheet';
 
 const MatrixInput = ({ setMatrices }) => {
   const [matrixA, setMatrixA] = useState(Array(3).fill(Array(3).fill('')));
   const [matrixB, setMatrixB] = useState(Array(3).fill(Array(1).fill('')));
+  const [loading, setLoading] = useState(false);
 
   const submitMatrix = async () => {
+    setLoading(true);
     try {
       const hasil = await handleMatrixSubmit(matrixA, matrixB);
       setMatrices([hasil[0], hasil[1]]);
+      if(hasil){
+        setLoading(false);
+      }
     } catch (error) {
       console.log(`There's an error: ${error}`);
     }
   }
-
-  // const submitSpreadsheet = async() => {
-  //   try {
-  //     const response = await handleMatrixSpreadsheet(matrixA, matrixB);
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   const handleMatrixAChange = (value, row, col) => {
     const updatedMatrixA = matrixA.map((matrixRow, rowIndex) =>
@@ -82,6 +79,9 @@ const MatrixInput = ({ setMatrices }) => {
       >
         Set Matrices
       </button>
+      {loading && (
+        <Loading />
+      )}
     </div>
   );
 };
