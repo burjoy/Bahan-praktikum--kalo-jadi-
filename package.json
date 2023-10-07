@@ -70,6 +70,8 @@
     "mime": "^1.6.0",
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
+    "mongodb": "^6.1.0",
+    "mongoose": "^7.5.3",
     "ms": "^2.1.2",
     "negotiator": "^0.6.3",
     "node-fetch": "^2.7.0",
