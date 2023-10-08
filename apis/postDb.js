@@ -1,4 +1,4 @@
-const postMatrixToDb = async (matrixA, matrixB) => {
+const postMatrixToDb = async (matrixA, matrixB, npm) => {
     try {
       // Convert the matrixA and matrixB arrays to the format expected by the Flask server
       const formattedMatrixA = matrixA.map(row => row.map(Number));
@@ -13,6 +13,7 @@ const postMatrixToDb = async (matrixA, matrixB) => {
         body: JSON.stringify({
           matrixA: formattedMatrixA,
           matrixB: formattedMatrixB,
+          nomor_mahasiswa: npm,
         }),
       });
 
@@ -22,8 +23,9 @@ const postMatrixToDb = async (matrixA, matrixB) => {
 
     //   setMatrices({matrix_A: formattedMatrixA, matrix_B:formattedMatrixB});
 
-      alert('Matris berhasil disubmit!');
-      console.log([formattedMatrixA, formattedMatrixB]);
+      alert('Matriks berhasil disubmit!');
+      console.log([formattedMatrixA, formattedMatrixB, npm]);
+      console.log(response);
       return "Success";
     } catch (error) {
       console.error('Error setting matrices:', error);
