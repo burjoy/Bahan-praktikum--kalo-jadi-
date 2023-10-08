@@ -16,7 +16,7 @@ const postUser = async (req, res) => {
         const {nomor_mahasiswa} = req.body;
         const hasil = await data_mahasiswa.findOne({'npm':nomor_mahasiswa});
         if(hasil){
-            res.json(codeVerifier);
+            res.json([nomor_mahasiswa, hasil]);
             console.log("Ketemu");
             return codeVerifier;
         }
