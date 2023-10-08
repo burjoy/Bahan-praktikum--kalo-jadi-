@@ -3,19 +3,46 @@ import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-d
 import { useState } from 'react';
 import TestApp from '../components/test_app';
 import Login from '../components/login';
+import Completion from '../components/completion';
 
 function AppRouter() {
   const [token, setToken] = useState(sessionStorage.getItem("access_token"));
-  console.log("Token: ", token);
+  const [status, setStatus] = useState(false);
+  console.log("Status: ", status);
 
   return (
     <Router>
     <Routes>
-      <Route path="/" element={<Login ambilToken={setToken}/>} />
+      <Route path="/" element={<Login ambilToken={setToken} ambilStatus={setStatus}/>} />
       <Route
         path="/matrix-calculator"
-        element={token ? <TestApp /> : <Navigate to="/" />}
+        element={token ? <TestApp npm={token}/> : <Navigate to="/"/>}
       />
+
+      <Route
+        path="/matrix-calculator"
+        element={status != true && <Navigate to="/done"/>}
+      />
+
+      <Route 
+        path='/done'
+        element={<Completion />}
+      />
+      <Route
+        path="/matrix-calculator"
+        element={
+            token ? (
+              status ? (
+                <Navigate to="/done" />
+                ) : (
+        <       TestApp npm={token} />
+              )
+            ) : (
+          <Navigate to="/" />
+        )
+  }
+/>
+
       {/* Add other routes as needed */}
       </Routes>
     </Router>
