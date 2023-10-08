@@ -3,7 +3,7 @@ import postUserData from '../../apis/postUserData';
 import { useNavigate } from 'react-router-dom';
 import '../src/App.css'
 
-const Login = ({ambilToken}) => {
+const Login = ({ambilToken, ambilStatus}) => {
   const [formData, setFormData] = useState({
     name: '',
     studentId: '',
@@ -30,13 +30,19 @@ const Login = ({ambilToken}) => {
     try {
         const hasil = await postUserData(formData.studentId);
         const result = await hasil.json();
-        if(result){
-            console.log(result);
-            sessionStorage.setItem("access_token", result);
+        if(result[0]){
+            console.log(result[0]);
+            sessionStorage.setItem("access_token", result[0]);
             console.log("Berhasil Login");
             alert("Berhasil Masuk");
-            navigate('/matrix-calculator');
-            ambilToken(result);
+            ambilToken(result[0]);
+            ambilStatus(result[1]?.submit_pre_test);
+            if(result[1]?.submit_pre_test){
+              navigate('/done');
+            }
+            else{
+              navigate('/matrix-calculator');
+            }
         }
         else{
             console.log(result);

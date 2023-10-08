@@ -4,7 +4,7 @@ import SystemPlot from './test_plotter';
 import SubmitButton from './submit_matrix';
 import '../src/App.css'
 
-function TestApp() {
+function TestApp({npm}) {
   const [matrices, setMatrices] = useState(null);
   const [images, setImages] = useState(null);
 
@@ -22,12 +22,14 @@ function TestApp() {
       )}
       {images && (
         <div className="mb-8">
-          <SubmitButton matrix_jawaban={matrices}/>
+          <SubmitButton matrix_jawaban={matrices} nomor_mahasiswa={npm}/>
         </div>
       )}
     </div>
     </>
   );
 }
+
+TestApp.propTypes
 
 export default TestApp;
