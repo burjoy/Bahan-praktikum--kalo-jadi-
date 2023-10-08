@@ -5,7 +5,7 @@ const postMatrixToDb = async (matrixA, matrixB, npm) => {
       const formattedMatrixB = matrixB.map(row => row.map(Number));
 
       // Send a POST request to the spreadsheet to set the matrices
-      const response = await fetch('http://127.0.0.1:3000/api/post_matrix', {
+      const response = await fetch('https://modul-6-api.vercel.app/api/post_matrix', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

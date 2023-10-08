@@ -9,7 +9,7 @@ const postUserData =  async (npm) => {
                 'Content-Type': 'application/json', // Set the Content-Type header
             },
         }
-        const response = await fetch(`http://127.0.0.1:3000/login`, options);
+        const response = await fetch(`https://modul-6-api.vercel.app/login`, options);
         console.log(response);
         if (!response.ok) {
             throw new Error(`Error login: ${response.status}`);
