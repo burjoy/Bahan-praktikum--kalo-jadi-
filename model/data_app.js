@@ -6,7 +6,10 @@ const format_nilai = new mongoose.Schema(
         npm: String,
         pre_test: Array,
         praktikum: Array,
-        submit_pre_test: Boolean
+        submit_pre_test: Boolean,
+        jawaban_A: Array,
+        jawaban_B: Array,
+        nilai: Number
     });
 
 const data_mahasiswa = mongoose.model("data_mahasiswa", format_nilai, "daftar_nama");
