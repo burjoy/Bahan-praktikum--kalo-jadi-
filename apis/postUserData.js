@@ -14,6 +14,7 @@ const postUserData =  async (npm) => {
         if (!response.ok) {
             throw new Error(`Error login: ${response.status}`);
         }
+        console.log(npm);
         return response  
     } catch (error) {
         console.log(error);
