@@ -14,16 +14,6 @@ function AppRouter() {
     <Router>
     <Routes>
       <Route path="/" element={<Login ambilToken={setToken} ambilStatus={setStatus}/>} />
-      <Route
-        path="/matrix-calculator"
-        element={token ? <TestApp npm={token}/> : <Navigate to="/"/>}
-      />
-
-      <Route
-        path="/matrix-calculator"
-        element={status != true && <Navigate to="/done"/>}
-      />
-
       <Route 
         path='/done'
         element={<Completion />}
