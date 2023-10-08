@@ -4,7 +4,7 @@ const postToDb = async(req, res) => {
     try {
         //const hasil = await result.json();
         const {matrixA, matrixB, nomor_mahasiswa} = req.body;
-        const update = {'pre_test': [matrixB, matrixA], 'submit_pre_test':true};
+        const update = {'pre_test': matrixB, 'praktikum': matrixB, 'submit_pre_test':true};
         const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
         console.log(`Updated Document: ${updatedDoc}`);
         const result = await data_mahasiswa.findOne({'npm':nomor_mahasiswa});
