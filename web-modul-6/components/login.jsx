@@ -2,8 +2,10 @@ import { useState } from 'react';
 import postUserData from '../../apis/postUserData';
 import { useNavigate } from 'react-router-dom';
 import '../src/App.css'
+import Loading from './loadingButton';
 
 const Login = ({ambilToken, ambilStatus}) => {
+  const [loading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     studentId: '',
@@ -27,6 +29,7 @@ const Login = ({ambilToken, ambilStatus}) => {
   const navigate = useNavigate();
 
   const loginNpm = async () => {
+    setIsLoading(true);
     try {
         const hasil = await postUserData(formData.studentId);
         const result = await hasil.json();
@@ -49,6 +52,7 @@ const Login = ({ambilToken, ambilStatus}) => {
             console.log("Gagal login");
             alert("Gagal Masuk");
         }
+        setIsLoading(false);
     } catch (error) {
         console.log(error);
     }
@@ -93,6 +97,7 @@ const Login = ({ambilToken, ambilStatus}) => {
             >
               Login
             </button>
+            {loading && (<Loading />)}
           </div>
         </form>
       </div>
