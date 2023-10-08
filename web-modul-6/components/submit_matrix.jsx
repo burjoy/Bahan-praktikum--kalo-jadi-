@@ -33,8 +33,9 @@ function SubmitButton({ matrix_jawaban, nomor_mahasiswa }) {
   return (
     <>
       <div className="mb-4">
+        <h2>Ingat, Anda hanya bisa mengirim nilai matriks Anda sekali, pertimbangkan dan hitung kembali nilai matriks Anda!</h2>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5"
           onClick={submitSpreadsheet}
           disabled={loading}
         >
