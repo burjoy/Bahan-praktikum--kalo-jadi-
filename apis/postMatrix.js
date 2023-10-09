@@ -23,6 +23,7 @@ const handleMatrixSubmit = async (matrixA, matrixB) => {
     //   setMatrices({matrix_A: formattedMatrixA, matrix_B:formattedMatrixB});
 
       alert('Matrices set successfully!');
+      return [formattedMatrixA, formattedMatrixB];
     } catch (error) {
       console.error('Error setting matrices:', error);
     }
