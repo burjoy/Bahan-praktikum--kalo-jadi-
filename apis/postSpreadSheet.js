@@ -23,7 +23,6 @@ const handleMatrixSpreadsheet = async (matrixA, matrixB) => {
     //   setMatrices({matrix_A: formattedMatrixA, matrix_B:formattedMatrixB});
 
       alert('Matrices set successfully!');
-      console.log([formattedMatrixA, formattedMatrixB]);
       return "Success";
     } catch (error) {
       console.error('Error setting matrices:', error);

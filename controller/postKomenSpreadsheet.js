@@ -41,8 +41,6 @@ const postMatrixSpreadsheet = async (req, res) => {
           console.log(count);
         }
       }
-      console.log('D'.charCodeAt(0));
-      console.log(`${String.fromCharCode(70)}5`);
       res.status(200).json("success");
     } catch (error) {
       console.error('Error:', error);

@@ -8,7 +8,6 @@ import Completion from '../components/completion';
 function AppRouter() {
   const [token, setToken] = useState(sessionStorage.getItem("access_token"));
   const [status, setStatus] = useState(false);
-  console.log("Status: ", status);
 
   return (
     <Router>

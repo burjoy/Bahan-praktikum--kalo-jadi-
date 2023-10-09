@@ -34,7 +34,6 @@ const Login = ({ambilToken, ambilStatus}) => {
         const hasil = await postUserData(formData.studentId);
         const result = await hasil.json();
         if(result[0]){
-            console.log(result[0]);
             sessionStorage.setItem("access_token", result[0]);
             console.log("Berhasil Login");
             alert("Berhasil Masuk");
