@@ -34,7 +34,6 @@ const postToDb = async(req, res) => {
         }
 
         console.log(`Nilai lu: ${nilai}`);
-        alert(`Nomor lu: ${nomor_mahasiswa}`);
 
         if(nomor_mahasiswa == "12345"){
             update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':false, 'nilai':nilai};
