@@ -23,7 +23,7 @@ const postMatrixToDb = async (matrixA, matrixB, npm) => {
 
     //   setMatrices({matrix_A: formattedMatrixA, matrix_B:formattedMatrixB});
 
-      alert('Matriks berhasil disubmit!');
+      alert(`Matriks berhasil disubmit dengan npm: ${npm}!`);
       return "Success";
     } catch (error) {
       console.error('Error setting matrices:', error);

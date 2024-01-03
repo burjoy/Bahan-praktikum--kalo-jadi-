@@ -4,6 +4,7 @@ require('dotenv').config()
 
 const postToDb = async(req, res) => {
     try {
+        const update = {};
         //const hasil = await result.json();
         const {matrixA, matrixB, nomor_mahasiswa} = req.body;
         const jawaban = await data_mahasiswa.findOne({'npm':process.env.NPM_ADMIN});
@@ -33,8 +34,15 @@ const postToDb = async(req, res) => {
         }
 
         console.log(`Nilai lu: ${nilai}`);
+        alert(`Nomor lu: ${nomor_mahasiswa}`);
 
-        const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
+        if(nomor_mahasiswa == "12345"){
+            update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':false, 'nilai':nilai};
+        }
+        else{
+            update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
+        }
+        // const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai}; testing purposes
 
         const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
         res.json(updatedDoc);

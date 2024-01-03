@@ -39,6 +39,10 @@ const Login = ({ambilToken, ambilStatus}) => {
             alert("Berhasil Masuk");
             ambilToken(result[0]);
             ambilStatus(result[1]?.submit_pre_test);
+            // if(result[0] == "12345"){
+
+            // }
+            console.log(`Test Result: ${result[1]}`);
             if(result[1]?.submit_pre_test){
               navigate('/done');
             }
