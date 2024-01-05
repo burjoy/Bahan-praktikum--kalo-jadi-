@@ -35,16 +35,17 @@ const postToDb = async(req, res) => {
 
         console.log(`Nilai lu: ${nilai}`);
 
-        // if(nomor_mahasiswa == "12345"){
-        //     update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':false, 'nilai':nilai};
-        // }
-        // else{
-        //     update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
-        // }
-        const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
+        if(nomor_mahasiswa == "12345"){
+           const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':false, 'nilai':nilai};
+           const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
+        }
+        else{
+           const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
+           const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
+        }
+        // const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
 
-        const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
-        const newOne = await data_mahasiswa.findOne({'npm':nomor_mahasiswa})
+        const newOne = await data_mahasiswa.findOne({'npm':nomor_mahasiswa});
         res.json(newOne);
     } catch (error) {
         console.log(error);
