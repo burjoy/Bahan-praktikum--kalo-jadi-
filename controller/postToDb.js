@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const postToDb = async(req, res) => {
     try {
-        const update = {};
+        // const update = {};
         //const hasil = await result.json();
         const {matrixA, matrixB, nomor_mahasiswa} = req.body;
         const jawaban = await data_mahasiswa.findOne({'npm':process.env.NPM_ADMIN});
@@ -41,7 +41,7 @@ const postToDb = async(req, res) => {
         // else{
         //     update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
         // }
-        update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
+        const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
 
         const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
         res.json(updatedDoc);
