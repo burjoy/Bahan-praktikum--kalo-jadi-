@@ -35,13 +35,13 @@ const postToDb = async(req, res) => {
 
         console.log(`Nilai lu: ${nilai}`);
 
-        if(nomor_mahasiswa == "12345"){
-            update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':false, 'nilai':nilai};
-        }
-        else{
-            update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
-        }
-        // const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai}; testing purposes
+        // if(nomor_mahasiswa == "12345"){
+        //     update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':false, 'nilai':nilai};
+        // }
+        // else{
+        //     update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
+        // }
+        update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
 
         const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
         res.json(updatedDoc);
