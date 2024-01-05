@@ -44,7 +44,8 @@ const postToDb = async(req, res) => {
         const update = {'pre_test': matrixA, 'praktikum': matrixB, 'submit_pre_test':true, 'nilai':nilai};
 
         const updatedDoc = await data_mahasiswa.findOneAndUpdate({'npm':nomor_mahasiswa}, update);
-        res.json(updatedDoc);
+        const newOne = await data_mahasiswa.findOne({'npm':nomor_mahasiswa})
+        res.json(newOne);
     } catch (error) {
         console.log(error);
         res.json(error);
