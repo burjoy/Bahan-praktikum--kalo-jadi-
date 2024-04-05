@@ -58,6 +58,13 @@ const Login = ({ambilToken, ambilStatus}) => {
         setIsLoading(false);
     } catch (error) {
         console.log(error);
+        // if(error == "ERR_INTERNET_DISCONNECTED"){
+        //   console.log("Internet disconnected");
+        // }
+        console.log(typeof error);
+    }
+    if(navigator.onLine){
+      console.log("onlen");
     }
   }
 
