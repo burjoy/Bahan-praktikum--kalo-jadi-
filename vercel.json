@@ -14,6 +14,6 @@
         }
     ],
     "rewrites": [
-    { "dest": "/web-modul-6/route.jsx" }
+    { "source": "/.*js" , "destination": "/" }
   ]
 }
