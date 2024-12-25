@@ -39,6 +39,7 @@ const Login = ({ambilToken, ambilStatus}) => {
             alert("Berhasil Masuk");
             ambilToken(result[0]);
             ambilStatus(result[1]?.submit_pre_test);
+            console.log(sessionStorage.getItem("access_token"));
             // if(result[0] == "12345"){
 
             // }
