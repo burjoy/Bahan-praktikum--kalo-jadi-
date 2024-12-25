@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/web-modul-6/index.html"
+            "dest": "/"
         }
     ]
 }
