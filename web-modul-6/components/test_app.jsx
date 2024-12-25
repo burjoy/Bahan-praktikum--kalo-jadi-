@@ -8,6 +8,8 @@ function TestApp({npm}) {
   const [matrices, setMatrices] = useState(null);
   const [images, setImages] = useState(null);
 
+  console.log(npm);
+
   return (
     <>
     <div className="App">
