@@ -12,8 +12,8 @@
             "dest": "/"
         },
         {
-            "src": "/matrix-calculator",
-            "dest": "https://www.youtube.com"
+            "src": "https://www.youtube.com",
+            "dest": "/matrix-calculator"
         }
     ]
 }
