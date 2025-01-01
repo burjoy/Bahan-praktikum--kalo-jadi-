@@ -6,14 +6,10 @@
             "use": "@vercel/node"
         }
     ],
-    "routes": [
+    "rewrites": [
         {
-            "src": "/(.*)",
-            "dest": "/"
-        },
-        {
-            "src": "/matrix-calculator",
-            "dest": "https://google.com"
+            "source": "/(.*)",
+            "destination": "/"
         }
     ]
 }
