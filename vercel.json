@@ -13,7 +13,7 @@
         },
         {
             "src": "/matrix-calculator",
-            "dest": "/"
+            "dest": "/matrix-calculator"
         }
     ]
 }
